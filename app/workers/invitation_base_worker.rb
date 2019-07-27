@@ -4,6 +4,6 @@ class InvitationBaseWorker
   protected
 
   def collection
-    @collection ||= Invite.where(sent_at: nil)
+    @collection ||= Invite.not_sent
   end
 end
