@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe MemberInviteMailer, type: :mailer do
-  describe 'invite_member' do
+  describe '#invite_member' do
     let(:invite) { create(:invite) }
     let(:mail) { described_class.invite_member(invite) }
 
