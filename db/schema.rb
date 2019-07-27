@@ -13,10 +13,11 @@
 ActiveRecord::Schema.define(version: 20190727120329) do
 
   create_table "members", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", null: false
+    t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_members_on_email", unique: true
   end
 
 end
