@@ -21,13 +21,7 @@ class API::V1::MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:data).permit(
-      { attributes: %i[name email] }
-    )
-  end
-
-  def member_attributes
-    rental_unit_params[:attributes] || {}
+    @members_params ||= resource_params(:name, :email)[:attributes]
   end
 
   def collection
