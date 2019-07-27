@@ -14,6 +14,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors'
 gem 'sendgrid-ruby'
 gem 'sidekiq'
+gem 'sidekiq-scheduler'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
