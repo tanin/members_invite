@@ -1,11 +1,8 @@
 class API::V1::MembersController < ApplicationController
-
-  # POST /members
   def create
     json_response resource, :created
   end
 
-  # GET /members
   def index
     json_response collection.page(params[:page])
   end
