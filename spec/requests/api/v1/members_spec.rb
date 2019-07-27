@@ -2,11 +2,21 @@ require 'rails_helper'
 
 describe 'Members API', type: :request do
   describe 'POST /api/v1/members' do
-    let(:valid_attributes) { { member: { name: 'Vasia Pupkin', email: 'foo@bar.com' } } }
+    let(:valid_post_attributes) {
+      {
+        data: {
+          type: 'members',
+          attributes: {
+            name: 'Vasia Pupkin',
+            email: 'foo@bar.com'
+          }
+        }
+      }
+    }
 
     context 'when the request is valid' do
       before do
-        post '/api/v1/members', params: valid_attributes
+        post '/api/v1/members', params: valid_post_attributes, as: :json
       end
 
       it 'creates a member' do
@@ -27,7 +37,9 @@ describe 'Members API', type: :request do
 
     context 'when the request is invalid' do
       before do
-        post '/api/v1/members', params: { member: { name: 'Foobar' } }
+        valid_post_attributes[:data][:attributes][:email] = nil
+
+        post '/api/v1/members', params: valid_post_attributes
       end
 
       it 'returns status code 422' do

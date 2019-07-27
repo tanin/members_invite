@@ -16,6 +16,12 @@ class API::V1::MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:name, :email)
+    params.require(:data).permit(
+      { attributes: %i[name email] }
+    )
+  end
+
+  def member_attributes
+    rental_unit_params[:attributes] || {}
   end
 end
