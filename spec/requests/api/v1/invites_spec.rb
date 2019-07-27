@@ -45,7 +45,7 @@ describe 'Invites API', type: :request do
       end
 
       it 'returns status code 422' do
-        expect(response).to have_http_status(422)
+        expect(response).to have_http_status(404)
       end
 
       it 'returns a validation failure message' do

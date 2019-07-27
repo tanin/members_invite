@@ -5,7 +5,7 @@ class API::V1::InvitesController < ApplicationController
       invites_params[:group_id]
     )
 
-    render json: creator, serializer: MassInviteCreateSerializer
+    json_response creator, :created
   end
 
   protected
