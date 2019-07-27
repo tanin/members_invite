@@ -1,6 +1,23 @@
 require 'rails_helper'
 
 describe 'Members API', type: :request do
+  describe 'GET /api/v1/members' do
+    let!(:members) { create_list(:member, 10) }
+
+    before do
+      get '/api/v1/members', as: :json
+    end
+
+    it 'returns status code 200' do
+      expect(response).to have_http_status(200)
+    end
+
+    it 'returns members json' do
+      expect(json).not_to be_empty
+      expect(json[:data].size).to eq(10)
+    end
+  end
+
   describe 'POST /api/v1/members' do
     let(:valid_post_attributes) {
       {

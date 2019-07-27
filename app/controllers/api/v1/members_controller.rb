@@ -5,6 +5,11 @@ class API::V1::MembersController < ApplicationController
     json_response resource, :created
   end
 
+  # GET /members
+  def index
+    json_response collection.page(params[:page])
+  end
+
   protected
 
   def resource
@@ -23,5 +28,9 @@ class API::V1::MembersController < ApplicationController
 
   def member_attributes
     rental_unit_params[:attributes] || {}
+  end
+
+  def collection
+    @members ||= Member.all
   end
 end
