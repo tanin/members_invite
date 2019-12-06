@@ -8,7 +8,7 @@ end
 
 gem 'rails', '~> 5.1.7'
 gem 'sqlite3'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 gem 'kaminari'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors'
